@@ -1,0 +1,24 @@
+# =============================================================================
+# Superstore Sales Dashboard - Dependencies
+# =============================================================================
+# Big Data Midterm Project
+# Authors: Lương Minh Tiến (K214162157), Lê Thành Tuân (K214161343)
+# =============================================================================
+
+# Web Framework
+streamlit>=1.31.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# MongoDB
+pymongo>=4.6.0
+dnspython>=2.4.0
+certifi>=2023.0.0
+
+# Visualization
+plotly>=5.18.0
+
+# Date handling
+python-dateutil>=2.8.0

@@ -1,0 +1,10 @@
+# Superstore Sales Dashboard - HuggingFace Space
+# Do not delete this file - required for HuggingFace Spaces Docker deployment
+
+title: Superstore Sales Dashboard
+emoji: 📊
+colorFrom: blue
+colorTo: red
+sdk: docker
+pinned: false
+license: mit
