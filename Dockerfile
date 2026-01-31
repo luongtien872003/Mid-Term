@@ -1,11 +1,11 @@
 # =============================================================================
 # Dockerfile for HuggingFace Spaces
 # =============================================================================
-# Big Data Midterm Project - Superstore Sales Dashboard
+# Big Data Midterm - Vaex + Machine Learning Dashboard
 # Authors: Lương Minh Tiến (K214162157), Lê Thành Tuân (K214161343)
 # =============================================================================
 
-# Use lightweight Python base image
+# Use Python 3.10 for Vaex compatibility
 FROM python:3.10-slim
 
 # Set working directory
@@ -15,10 +15,11 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Install system dependencies
+# Install system dependencies for Vaex and ML
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching

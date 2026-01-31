@@ -1,14 +1,18 @@
 # =============================================================================
 # Superstore Sales Dashboard - Dependencies
 # =============================================================================
-# Big Data Midterm Project
+# Big Data Midterm Project - Vaex + Machine Learning
 # Authors: Lương Minh Tiến (K214162157), Lê Thành Tuân (K214161343)
 # =============================================================================
 
 # Web Framework
 streamlit>=1.31.0
 
-# Data Processing
+# Data Processing - Big Data
+vaex-core>=4.17.0
+vaex-hdf5>=0.14.0
+
+# Data Processing - Standard
 pandas>=2.0.0
 numpy>=1.24.0
 
@@ -17,8 +21,14 @@ pymongo>=4.6.0
 dnspython>=2.4.0
 certifi>=2023.0.0
 
+# Machine Learning
+scikit-learn>=1.3.0
+
 # Visualization
 plotly>=5.18.0
 
 # Date handling
 python-dateutil>=2.8.0
+
+# HTTP requests (for health check)
+requests>=2.31.0

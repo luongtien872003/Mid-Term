@@ -2,13 +2,17 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green)
+![Vaex](https://img.shields.io/badge/Vaex-Big_Data-purple)
+![ML](https://img.shields.io/badge/Scikit--learn-ML-orange)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.31-red)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-Spaces-yellow)
 
 ## 📋 Giới thiệu
 
-Bài tập giữa kỳ môn **Big Data** - Phân tích dữ liệu Superstore Sales sử dụng các công nghệ Big Data hiện đại.
+Bài tập giữa kỳ môn **Big Data** - Dashboard phân tích dữ liệu Superstore Sales với:
+- **Vaex** cho xử lý Big Data
+- **Machine Learning** cho dự đoán doanh thu
+- **MongoDB Atlas** cho lưu trữ cloud
 
 ### 👥 Thành viên nhóm
 
@@ -19,12 +23,24 @@ Bài tập giữa kỳ môn **Big Data** - Phân tích dữ liệu Superstore Sa
 
 ---
 
-## 🎯 Mục tiêu dự án
+## 🎯 Tính năng chính
 
-1. **Kết nối và quản lý dữ liệu** với MongoDB Atlas (Cloud Database)
-2. **Phân tích Big Data** sử dụng Vaex (thay thế Pandas)
-3. **Xây dựng Dashboard tương tác** với Streamlit
-4. **Triển khai ứng dụng** với Docker trên HuggingFace Spaces
+### 🚀 Big Data với Vaex
+- Memory-mapped data processing
+- Lazy evaluation cho hiệu suất cao
+- Xử lý dataset lớn với RAM thấp
+
+### 🤖 Machine Learning
+- **Linear Regression** - Baseline model
+- **Random Forest** - Ensemble learning
+- **Gradient Boosting** - Advanced predictions
+- Real-time Sales Prediction
+
+### 📊 Interactive Dashboard
+- Filter theo Category, Region, Segment
+- KPI Metrics (Sales, Profit, Orders)
+- Interactive Charts (Plotly)
+- Data Table với search
 
 ---
 
@@ -32,13 +48,13 @@ Bài tập giữa kỳ môn **Big Data** - Phân tích dữ liệu Superstore Sa
 
 | Công nghệ | Mục đích |
 |-----------|----------|
-| **MongoDB Atlas** | Cloud NoSQL Database - lưu trữ 10,000 bản ghi |
-| **PyMongo** | Python driver cho MongoDB |
-| **Vaex** | Xử lý Big Data hiệu quả (thay thế Pandas) |
-| **Streamlit** | Web framework cho Data Dashboard |
-| **Plotly** | Interactive visualization |
+| **MongoDB Atlas** | Cloud NoSQL Database |
+| **Vaex** | Big Data Processing (thay Pandas) |
+| **Scikit-learn** | Machine Learning |
+| **Streamlit** | Web Dashboard |
+| **Plotly** | Interactive Visualization |
 | **Docker** | Containerization |
-| **HuggingFace Spaces** | Cloud deployment platform |
+| **HuggingFace Spaces** | Cloud Deployment |
 
 ---
 
@@ -46,60 +62,49 @@ Bài tập giữa kỳ môn **Big Data** - Phân tích dữ liệu Superstore Sa
 
 ```
 Mid-Term/
-├── 📓 notebook.ipynb      # Notebook chính (nộp LMS)
-│                          # - Kết nối MongoDB Atlas
-│                          # - Truy vấn và phân tích dữ liệu
-│                          # - Visualization với Plotly
+├── 📓 notebook.ipynb      # Notebook phân tích (nộp LMS)
+│                          # - Kết nối MongoDB
+│                          # - Phân tích Vaex
+│                          # - Visualization
 │
 ├── 🐍 app.py              # Streamlit Dashboard
-│                          # - UI/UX professional (dark theme)
-│                          # - Interactive filters
-│                          # - Real-time charts
+│                          # - Vaex Big Data
+│                          # - ML Prediction
+│                          # - Interactive UI
 │
-├── 📦 import_data.py      # Script import data vào MongoDB
+├── 📦 import_data.py      # Script import data
 │
-├── 🐳 Dockerfile          # Docker configuration cho HuggingFace
+├── 🐳 Dockerfile          # Docker (Python 3.10 + Vaex)
 │
-├── 📋 requirements.txt    # Python dependencies
+├── 📋 requirements.txt    # Dependencies
 │
-└── 📖 README.md           # Documentation (file này)
+└── 📖 README.md           # Documentation
 ```
 
 ---
 
 ## 🚀 Hướng dẫn chạy
 
-### Yêu cầu hệ thống
+### Yêu cầu
+- **Python 3.10** (bắt buộc cho Vaex)
+- Kết nối Internet
 
-- Python 3.10+
-- Kết nối Internet (để kết nối MongoDB Atlas)
-
-### 1. Clone repository
+### 1. Clone & Setup
 
 ```bash
 git clone https://github.com/luongtien872003/Mid-Term.git
 cd Mid-Term
-```
 
-### 2. Tạo virtual environment
-
-```bash
+# Tạo virtual environment
 python -m venv venv
+.\venv\Scripts\activate  # Windows
+source venv/bin/activate  # Linux/Mac
 
-# Windows
-.\venv\Scripts\activate
-
-# Linux/Mac
-source venv/bin/activate
-```
-
-### 3. Cài đặt dependencies
-
-```bash
+# Cài đặt dependencies
 pip install -r requirements.txt
 ```
 
-### 4. Chạy Streamlit Dashboard
+### 2. Chạy Streamlit
 
 ```bash
 streamlit run app.py
@@ -107,13 +112,10 @@ streamlit run app.py
 
 Truy cập: http://localhost:8501
 
-### 5. Chạy với Docker
+### 3. Chạy với Docker
 
 ```bash
-# Build image
 docker build -t superstore-dashboard .
-
-# Run container
 docker run -p 7860:7860 superstore-dashboard
 ```
 
@@ -123,45 +125,59 @@ Truy cập: http://localhost:7860
 
 ## 📊 Dataset
 
-**Superstore Sales Dataset** - 10,000 bản ghi dữ liệu bán lẻ:
+**Superstore Sales** - 10,000 bản ghi:
 
 | Column | Mô tả |
 |--------|-------|
-| Order ID | Mã đơn hàng |
-| Order Date | Ngày đặt hàng (2020-2023) |
-| Ship Date | Ngày giao hàng |
-| Customer ID/Name | Thông tin khách hàng |
-| Segment | Consumer / Corporate / Home Office |
-| Region | East / West / Central / South |
+| Order Date | Ngày đặt hàng |
 | Category | Technology / Furniture / Office Supplies |
 | Sub-Category | Phones, Chairs, Paper, ... |
+| Region | East / West / Central / South |
+| Segment | Consumer / Corporate / Home Office |
 | Sales | Doanh thu ($) |
 | Profit | Lợi nhuận ($) |
 | Quantity | Số lượng |
-| Discount | Chiết khấu (%) |
+| Discount | Chiết khấu |
 
 ---
 
-## 📈 Tính năng Dashboard
+## 🤖 Machine Learning Models
 
-### 🎛️ Bộ lọc (Filters)
-- Danh mục sản phẩm (Category)
-- Khu vực (Region)
-- Phân khúc khách hàng (Segment)
-- Khoảng thời gian (Date Range)
+### Features sử dụng
+- Category (encoded)
+- Region (encoded)
+- Segment (encoded)
+- Sub-Category (encoded)
+- Quantity
+- Discount
 
-### 📊 Biểu đồ (Charts)
-- **KPI Cards**: Tổng doanh thu, lợi nhuận, số đơn hàng
-- **Bar Chart**: Doanh thu & Lợi nhuận theo Category
-- **Pie Chart**: Phân bố theo Region
-- **Line Chart**: Xu hướng theo thời gian
-- **Horizontal Bar**: Top 10 sản phẩm bán chạy
-- **Heatmap**: Sub-Category x Region
+### Target
+- **Sales** (Doanh thu)
 
-### 📋 Data Table
-- Tìm kiếm sản phẩm
-- Hiển thị 100 bản ghi
-- Format columns
+### Models
+
+| Model | Mô tả |
+|-------|-------|
+| Linear Regression | Baseline, đơn giản |
+| Random Forest | Ensemble 100 trees |
+| Gradient Boosting | Sequential boosting |
+
+### Metrics
+- **R² Score** - Tỷ lệ variance explained
+- **MAE** - Mean Absolute Error
+- **RMSE** - Root Mean Squared Error
+
+---
+
+## 📈 Vaex vs Pandas
+
+| Tiêu chí | Vaex | Pandas |
+|----------|------|--------|
+| Memory Mapping | ✅ | ❌ |
+| Lazy Evaluation | ✅ | ❌ |
+| Out-of-core | ✅ | ❌ |
+| 1 tỷ dòng | ✅ 8GB RAM | ❌ >100GB RAM |
+| Parallel | ✅ Multi-thread | ❌ Single-thread |
 
 ---
 
@@ -169,43 +185,14 @@ Truy cập: http://localhost:7860
 
 | Resource | Link |
 |----------|------|
-| 📁 GitHub Repository | [github.com/luongtien872003/Mid-Term](https://github.com/luongtien872003/Mid-Term) |
-| 🚀 Demo Online | [HuggingFace Spaces](https://huggingface.co/spaces/lmt872003/Mid-Term-Bigdata) |
-
----
-
-## 📝 Tại sao Vaex phù hợp Big Data hơn Pandas?
-
-| Tiêu chí | Vaex | Pandas |
-|----------|------|--------|
-| Memory mapping | ✅ Có | ❌ Không |
-| Lazy evaluation | ✅ Có | ❌ Không |
-| Out-of-core processing | ✅ Có | ❌ Không |
-| Xử lý 1 tỷ dòng | ✅ Laptop 8GB RAM | ❌ Cần > 100GB RAM |
-| Parallel processing | ✅ Multi-threaded | ❌ Single-threaded |
-
-**Kết luận**: Vaex phù hợp hơn cho Big Data vì sử dụng memory-mapped files và lazy evaluation, cho phép xử lý datasets lớn gấp nhiều lần RAM khả dụng.
-
----
-
-## 🐳 HuggingFace Deployment
-
-Project được deploy trên HuggingFace Spaces với Docker SDK:
-
-```yaml
-title: Superstore Sales Dashboard
-emoji: 📊
-colorFrom: blue
-colorTo: red
-sdk: docker
-pinned: false
-```
+| 📁 GitHub | [github.com/luongtien872003/Mid-Term](https://github.com/luongtien872003/Mid-Term) |
+| 🚀 Demo | [HuggingFace Spaces](https://huggingface.co/spaces/lmt872003/Mid-Term-Bigdata) |
 
 ---
 
 ## 📄 License
 
-MIT License - Free to use for educational purposes.
+MIT License
 
 ---
 
